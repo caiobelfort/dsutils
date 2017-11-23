@@ -71,7 +71,7 @@ def plot_correlation_map(dataframe, method='pearson', **kwargs):
         correlation,
         cmap=cmap,
         square=True,
-        cbar_kws={'shrink', 9},
+        cbar_kws={'shrink': .9},
         ax=ax,
         annot=True,
         annot_kws={'fontsize': 12}
