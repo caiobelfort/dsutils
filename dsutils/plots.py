@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-
 def plot_distribution(dataframe, var, target, **kwargs):
     """
     Plot a distribution of a variable over a target categorical one
@@ -69,6 +68,7 @@ def plot_correlation_map(dataframe, method='pearson', **kwargs):
     _, ax = plt.subplots(figsize=figsize)
     sns.heatmap(
         correlation,
+
         cmap=cmap,
         square=True,
         cbar_kws={'shrink': .9},
