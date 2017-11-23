@@ -43,12 +43,31 @@ def plot_distribution(dataframe, var, target, **kwargs):
     plt.show()
 
 
-def plot_correlation_map(df):
-    corr = df.corr()
-    _, ax = plt.subplots(figsize=(12, 10))
-    cmap = sns.diverging_palette(220, 10, as_cmap=True)
-    _ = sns.heatmap(
-        corr,
+def plot_correlation_map(dataframe, method='pearson', **kwargs):
+    """
+    Plot a correlation map of a table
+
+    Parameters
+    ----------
+    dataframe: pandas.DataFrame
+    method: {'pearson', 'kendal', 'spearman'}
+    kwargs: additional arguments
+
+    """
+
+    figsize = kwargs.get('figsize', None)
+    cmap = kwargs.get('cmap', None)
+
+    correlation = dataframe.corr(method=method)
+
+    if figsize is None:
+        figsize = (12, 10)
+    if cmap is None:
+        cmap = sns.diverging_palette(220, 10, as_cmap=True)
+
+    _, ax = plt.subplots(figsize=figsize)
+    sns.heatmap(
+        correlation,
         cmap=cmap,
         square=True,
         cbar_kws={'shrink': .9},
@@ -56,3 +75,4 @@ def plot_correlation_map(df):
         annot=True,
         annot_kws={'fontsize': 12}
     )
+    plt.show()
