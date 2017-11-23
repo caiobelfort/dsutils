@@ -8,5 +8,6 @@ setup(
     author_email='caiobelfort90@gmail.com',
     license='GPL',
     packages=['dsutils'],
-    zip_safe=False
+    zip_safe=False,
+    requires=['matplotlib', 'seaborn', 'pandas']
 )
