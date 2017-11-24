@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def plot_distribution(dataframe, var, target, **kwargs):
+def plot_distribution(dataframe, var, target=None, **kwargs):
     """
     Plot a distribution of a variable over a target categorical one
 
@@ -10,7 +10,7 @@ def plot_distribution(dataframe, var, target, **kwargs):
     ----------
     dataframe: pandas.DataFrame
     var: str
-    target: str
+    target: str or None
         A categorical variable
     kwargs: additional arguments
     """
