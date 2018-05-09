@@ -140,7 +140,13 @@ def plot_silhouette_score(
     y_lower = 10
     for i in range(n_clusters):
         ith_cluster_silhouette = silhouette[labels == i]
-        ith_cluster_silhouette.sort()
+
+        if isinstance(ith_cluster_silhouette, pd.Series):
+            ith_cluster_silhouette.sort_values(inplace=True)
+        else:
+            ith_cluster_silhouette.sort()
+
+
 
         size_cluster_i = ith_cluster_silhouette.shape[0]
 
