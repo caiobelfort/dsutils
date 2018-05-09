@@ -9,5 +9,5 @@ setup(
     license='GPL',
     packages=['dsutils'],
     zip_safe=False,
-    requires=['matplotlib', 'seaborn', 'pandas']
+    requires=['matplotlib', 'seaborn', 'pandas', 'numpy', 'scikit-learn']
 )
