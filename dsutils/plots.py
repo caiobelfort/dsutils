@@ -91,7 +91,7 @@ def plot_silhouette_score(
         xlabel: str = None,
         ylabel: str = None,
         cmap: str = None,
-        figsize: typing.Tuple(int, int) = None):
+        figsize: typing.Tuple[int, int] = None):
     """
 
     Plot the silhouette score of samples based on pre-computed labels
