@@ -131,7 +131,7 @@ def plot_silhouette_score(
     # Begin plot
     n_clusters = len(labels.unique())
 
-    fig, ax = plt.subplot(figsize = figsize)
+    fig, ax = plt.subplots(figsize = figsize)
 
     ax.set_xlim([-0.1, 1])
     ax.set_ylim(0, len(samples) + (n_clusters + 1) * 10)
