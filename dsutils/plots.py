@@ -7,16 +7,14 @@ import pandas as pd
 import typing
 
 
-def plot_distribution(dataframe, var, target=None, **kwargs):
+def distribution_plot(dataframe: pd.DataFrame, var: str, target: str = None, **kwargs):
     """
     Plot a distribution of a variable over a target categorical one
 
-    Args
-    ----------
+    Args:
     dataframe: pandas.DataFrame
-    var: str
-    target: str or None
-        A categorical variable
+    var:
+    target: A categorical variable
     kwargs: additional arguments
     """
 
