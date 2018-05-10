@@ -12,10 +12,10 @@ def distribution_plot(dataframe: pd.DataFrame, var: str, target: str = None, **k
     Plot a distribution of a variable over a target categorical one
 
     Args:
-    dataframe: pandas.DataFrame
-    var:
-    target: A categorical variable
-    kwargs: additional arguments
+        dataframe: pandas.DataFrame
+        var:
+        target: A categorical variable
+        kwargs: additional arguments
     """
 
     row = kwargs.get('row', None)
@@ -46,16 +46,14 @@ def distribution_plot(dataframe: pd.DataFrame, var: str, target: str = None, **k
     plt.show()
 
 
-def plot_correlation_map(dataframe, method='pearson', **kwargs):
+def correlation_map(dataframe: pd.DataFrame, method: str = 'pearson', **kwargs):
     """
     Plot a correlation map of a table
 
-    Parameters
-    ----------
-    dataframe: pandas.DataFrame
-    method: {'pearson', 'kendal', 'spearman'}
-    kwargs: additional arguments
-
+    Args:
+        dataframe: The dataframe with named columns
+        method: One of the following methods:  {'pearson', 'kendal', 'spearman'}
+        kwargs: additional arguments
     """
 
     figsize = kwargs.get('figsize', None)
@@ -81,8 +79,8 @@ def plot_correlation_map(dataframe, method='pearson', **kwargs):
     plt.show()
 
 
-def plot_silhouette_score(
-        samples: np.ndarray or pd.DataDrame,
+def silhouette_plot(
+        samples: np.ndarray or pd.DataFrame,
         labels: np.ndarray or pd.Series,
         silhouette: np.ndarray or pd.Series = None,
         title: str = None,
@@ -125,15 +123,13 @@ def plot_silhouette_score(
 
     cmap = cm.get_cmap(cmap) if cmap is not None else cm.get_cmap('nipy_spectral')
 
-
     # Begin plot
     n_clusters = len(labels.unique())
 
-    fig, ax = plt.subplots(figsize = figsize)
+    fig, ax = plt.subplots(figsize=figsize)
 
     ax.set_xlim([-0.1, 1])
     ax.set_ylim(0, len(samples) + (n_clusters + 1) * 10)
-
 
     y_lower = 10
     for i in range(n_clusters):
@@ -143,8 +139,6 @@ def plot_silhouette_score(
             ith_cluster_silhouette.sort_values(inplace=True)
         else:
             ith_cluster_silhouette.sort()
-
-
 
         size_cluster_i = ith_cluster_silhouette.shape[0]
 
@@ -159,7 +153,7 @@ def plot_silhouette_score(
             facecolor=color,
             edgecolor=color,
             alpha=0.7,
-            label= 'Label %d' % i
+            label='Label %d' % i
         )
         y_lower = y_upper + 10
 
